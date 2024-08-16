@@ -51,11 +51,11 @@ def home_view(request):
 
  # Ensure 'overview.html' is the correct template name
 @login_required
-def overview_view(request):
-    return render(request, 'overview.html')
+def overview(request):
+    return render(request, 'map.html')
 
 
-
+@login_required
 def newproject_view(request):
     if request.method == 'POST':
         form = StructureForm(request.POST, request.FILES)
@@ -67,5 +67,3 @@ def newproject_view(request):
         form = StructureForm()
     return render(request, 'newproject.html', {'form': form})
 
-def success(request):
-    return render(request, 'success.html')
